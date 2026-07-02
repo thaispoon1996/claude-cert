@@ -35,9 +35,9 @@ export default async function LabsPage() {
     <AppShell>
       <div className="max-w-3xl mx-auto px-4 py-6 space-y-6">
         <div>
-          <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Labs</h1>
+          <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Lab thực hành</h1>
           <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">
-            Hands-on exercises to reinforce your learning
+            Bài tập thực hành để củng cố kiến thức đã học
           </p>
         </div>
 
@@ -72,11 +72,11 @@ export default async function LabsPage() {
                           <p className="text-xs text-slate-400">{lab.title}</p>
                         </div>
                         <div className="flex items-center gap-2">
-                          {isCompleted && <Badge variant="success">Done</Badge>}
+                          {isCompleted && <Badge variant="success">Hoàn thành</Badge>}
                           {isInProgress && (
                             <Badge variant="warning" className="flex items-center gap-1">
                               <Clock className="h-3 w-3" />
-                              In Progress
+                              Đang làm
                             </Badge>
                           )}
                         </div>
@@ -92,7 +92,7 @@ export default async function LabsPage() {
         {labs.length === 0 && (
           <div className="text-center py-16 text-slate-400">
             <FlaskConical className="h-12 w-12 mx-auto mb-4 opacity-30" />
-            <p>No labs available yet. Check back soon!</p>
+            <p>Chưa có lab nào. Quay lại sau nhé!</p>
           </div>
         )}
       </div>

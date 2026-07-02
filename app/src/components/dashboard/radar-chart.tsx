@@ -26,7 +26,7 @@ export function RadarChart({ data }: RadarChartProps) {
           tick={{ fontSize: 11, fill: "#64748b" }}
         />
         <Tooltip
-          formatter={(value) => [`${value}%`, "Mastery"]}
+          formatter={(value) => [`${value}%`, "Thành thạo"]}
           contentStyle={{
             background: "#1e293b",
             border: "none",
@@ -36,7 +36,7 @@ export function RadarChart({ data }: RadarChartProps) {
           }}
         />
         <Radar
-          name="Mastery"
+          name="Thành thạo"
           dataKey="mastery"
           stroke="#6366f1"
           fill="#6366f1"

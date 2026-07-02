@@ -47,6 +47,12 @@ interface PracticeSessionProps {
   limit: number;
 }
 
+const confidenceLabel: Record<"sure" | "unsure" | "guess", string> = {
+  sure: "Chắc chắn",
+  unsure: "Không chắc",
+  guess: "Đoán",
+};
+
 export function PracticeSession({ mode, domainId, limit }: PracticeSessionProps) {
   const router = useRouter();
   const [questions, setQuestions] = useState<QuestionData[]>([]);
@@ -106,7 +112,7 @@ export function PracticeSession({ mode, domainId, limit }: PracticeSessionProps)
     return (
       <div className="flex flex-col items-center justify-center py-16 gap-4">
         <div className="w-8 h-8 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin" />
-        <p className="text-slate-500">Loading questions...</p>
+        <p className="text-slate-500">Đang tải câu hỏi...</p>
       </div>
     );
   }
@@ -114,9 +120,9 @@ export function PracticeSession({ mode, domainId, limit }: PracticeSessionProps)
   if (questions.length === 0) {
     return (
       <div className="text-center py-16 space-y-4">
-        <p className="text-slate-500">No questions found for this mode.</p>
+        <p className="text-slate-500">Không tìm thấy câu hỏi cho chế độ này.</p>
         <Link href="/practice">
-          <Button variant="outline">Back to Practice</Button>
+          <Button variant="outline">Quay lại Luyện tập</Button>
         </Link>
       </div>
     );
@@ -130,26 +136,26 @@ export function PracticeSession({ mode, domainId, limit }: PracticeSessionProps)
           <CheckCircle className="h-8 w-8 text-green-600" />
         </div>
         <div>
-          <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Session Complete!</h2>
-          <p className="text-slate-500 mt-1">You answered {score.total} questions</p>
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Hoàn thành phiên luyện tập!</h2>
+          <p className="text-slate-500 mt-1">Bạn đã làm {score.total} câu hỏi</p>
         </div>
         <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-6 space-y-3">
           <div className="flex justify-between">
-            <span className="text-slate-600 dark:text-slate-400">Correct</span>
+            <span className="text-slate-600 dark:text-slate-400">Số câu đúng</span>
             <span className="font-semibold text-green-600">{score.correct}/{score.total}</span>
           </div>
           <div className="flex justify-between">
-            <span className="text-slate-600 dark:text-slate-400">Accuracy</span>
+            <span className="text-slate-600 dark:text-slate-400">Độ chính xác</span>
             <span className="font-semibold">{accuracy}%</span>
           </div>
           <ProgressBar value={accuracy} color={accuracy >= 70 ? "bg-green-500" : "bg-orange-500"} />
         </div>
         <div className="flex gap-3 justify-center">
           <Link href="/practice">
-            <Button variant="outline">Back to Practice</Button>
+            <Button variant="outline">Quay lại Luyện tập</Button>
           </Link>
           <Link href="/dashboard">
-            <Button>View Dashboard</Button>
+            <Button>Xem Tổng quan</Button>
           </Link>
         </div>
       </div>
@@ -161,7 +167,7 @@ export function PracticeSession({ mode, domainId, limit }: PracticeSessionProps)
       {/* Progress */}
       <div className="flex items-center justify-between">
         <Link href="/practice">
-          <Button variant="ghost" size="sm">← Back</Button>
+          <Button variant="ghost" size="sm">← Quay lại</Button>
         </Link>
         <ProgressBar
           value={Math.round((currentIndex / questions.length) * 100)}
@@ -169,7 +175,7 @@ export function PracticeSession({ mode, domainId, limit }: PracticeSessionProps)
           className="flex-1 mx-4"
         />
         <span className="text-sm text-slate-500">
-          {score.correct}/{score.total} correct
+          {score.correct}/{score.total} đúng
         </span>
       </div>
 
@@ -202,18 +208,18 @@ export function PracticeSession({ mode, domainId, limit }: PracticeSessionProps)
       {/* Confidence selector */}
       {!revealed && (
         <div className="flex gap-2">
-          <p className="text-sm text-slate-500 mr-2 flex items-center">Confidence:</p>
+          <p className="text-sm text-slate-500 mr-2 flex items-center">Độ tự tin:</p>
           {(["sure", "unsure", "guess"] as const).map((c) => (
             <button
               key={c}
               onClick={() => setConfidence(c)}
-              className={`px-3 py-1.5 rounded-full text-xs font-medium capitalize border transition-colors ${
+              className={`px-3 py-1.5 rounded-full text-xs font-medium border transition-colors ${
                 confidence === c
                   ? "bg-indigo-600 text-white border-indigo-600"
                   : "border-slate-300 dark:border-slate-600 text-slate-600 dark:text-slate-400 hover:border-indigo-300"
               }`}
             >
-              {c}
+              {confidenceLabel[c]}
             </button>
           ))}
         </div>
@@ -227,7 +233,7 @@ export function PracticeSession({ mode, domainId, limit }: PracticeSessionProps)
           className="w-full"
           size="lg"
         >
-          {submitting ? "Submitting..." : "Submit Answer"}
+          {submitting ? "Đang gửi..." : "Gửi đáp án"}
         </Button>
       ) : (
         <div className="space-y-4">
@@ -244,7 +250,7 @@ export function PracticeSession({ mode, domainId, limit }: PracticeSessionProps)
             />
           )}
           <Button onClick={handleNext} className="w-full" size="lg">
-            {currentIndex + 1 >= questions.length ? "Finish Session" : "Next Question"}
+            {currentIndex + 1 >= questions.length ? "Kết thúc phiên" : "Câu tiếp theo"}
             <ArrowRight className="h-4 w-4 ml-2" />
           </Button>
         </div>

@@ -82,30 +82,30 @@ export function DiagnosticSession({ questions }: DiagnosticSessionProps) {
           <span className="text-3xl">🎯</span>
         </div>
         <div>
-          <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Diagnostic Assessment</h1>
+          <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Bài kiểm tra đầu vào</h1>
           <p className="text-slate-500 mt-2 text-sm max-w-md mx-auto">
-            This {questions.length}-question diagnostic will identify your current knowledge level
-            across all 5 CCA-F domains and recommend a personalized learning path.
+            Bài kiểm tra {questions.length} câu này sẽ đánh giá mức độ hiểu biết hiện tại của bạn
+            trên cả 5 domain của CCA-F và đề xuất lộ trình học phù hợp.
           </p>
         </div>
         <div className="bg-slate-50 dark:bg-slate-800 rounded-xl p-4 text-left max-w-sm mx-auto">
           <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
             <li className="flex items-center gap-2">
-              <span className="text-green-500">✓</span> {questions.length} carefully selected questions
+              <span className="text-green-500">✓</span> {questions.length} câu hỏi được chọn lọc kỹ
             </li>
             <li className="flex items-center gap-2">
-              <span className="text-green-500">✓</span> Covers all 5 exam domains
+              <span className="text-green-500">✓</span> Bao phủ cả 5 domain của đề thi
             </li>
             <li className="flex items-center gap-2">
-              <span className="text-green-500">✓</span> ~15-20 minutes to complete
+              <span className="text-green-500">✓</span> ~15-20 phút để hoàn thành
             </li>
             <li className="flex items-center gap-2">
-              <span className="text-green-500">✓</span> Personalized study recommendations
+              <span className="text-green-500">✓</span> Đề xuất lộ trình học cá nhân hóa
             </li>
           </ul>
         </div>
         <Button size="lg" onClick={() => setPhase("quiz")}>
-          Start Diagnostic
+          Bắt đầu kiểm tra
         </Button>
       </div>
     );
@@ -141,18 +141,18 @@ export function DiagnosticSession({ questions }: DiagnosticSessionProps) {
 
     return (
       <div className="space-y-6">
-        <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Your Diagnostic Results</h1>
+        <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Kết quả kiểm tra đầu vào</h1>
 
         <Card>
           <CardContent className="py-6 text-center">
             <p className="text-5xl font-black text-indigo-600">{overall}%</p>
-            <p className="text-slate-500 mt-1">Overall Score ({totalCorrect}/{questions.length} correct)</p>
+            <p className="text-slate-500 mt-1">Điểm tổng ({totalCorrect}/{questions.length} câu đúng)</p>
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader>
-            <h2 className="font-semibold text-slate-900 dark:text-slate-100">Domain Breakdown</h2>
+            <h2 className="font-semibold text-slate-900 dark:text-slate-100">Phân tích theo Domain</h2>
           </CardHeader>
           <CardContent className="space-y-4">
             {domainResults.map((d) => {
@@ -179,10 +179,10 @@ export function DiagnosticSession({ questions }: DiagnosticSessionProps) {
         {weakDomains.length > 0 && (
           <Card className="border-indigo-200 dark:border-indigo-800">
             <CardHeader>
-              <h2 className="font-semibold text-slate-900 dark:text-slate-100">Recommended Learning Path</h2>
+              <h2 className="font-semibold text-slate-900 dark:text-slate-100">Lộ trình học đề xuất</h2>
             </CardHeader>
             <CardContent className="space-y-3">
-              <p className="text-sm text-slate-500">Focus on these domains first:</p>
+              <p className="text-sm text-slate-500">Ưu tiên học các domain sau trước:</p>
               {weakDomains.map((d) => (
                 <Link
                   key={d.domainId}
@@ -190,7 +190,7 @@ export function DiagnosticSession({ questions }: DiagnosticSessionProps) {
                   className="flex items-center gap-3 p-3 rounded-lg bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
                 >
                   <span className="text-sm font-semibold text-indigo-600 dark:text-indigo-400">
-                    Priority
+                    Ưu tiên
                   </span>
                   <span className="text-sm text-slate-800 dark:text-slate-200">{d.domainNameVi}</span>
                   <span className="ml-auto text-xs text-slate-400">
@@ -204,10 +204,10 @@ export function DiagnosticSession({ questions }: DiagnosticSessionProps) {
 
         <div className="flex gap-3">
           <Link href="/learn" className="flex-1">
-            <Button className="w-full">Start Learning</Button>
+            <Button className="w-full">Bắt đầu học</Button>
           </Link>
           <Link href="/dashboard" className="flex-1">
-            <Button variant="outline" className="w-full">Dashboard</Button>
+            <Button variant="outline" className="w-full">Tổng quan</Button>
           </Link>
         </div>
       </div>
@@ -218,7 +218,7 @@ export function DiagnosticSession({ questions }: DiagnosticSessionProps) {
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
-        <span className="text-sm text-slate-500">Diagnostic · Q{currentIndex + 1}/{questions.length}</span>
+        <span className="text-sm text-slate-500">Kiểm tra đầu vào · Câu {currentIndex + 1}/{questions.length}</span>
         <ProgressBar
           value={Math.round((currentIndex / questions.length) * 100)}
           showPercent={false}
@@ -228,7 +228,7 @@ export function DiagnosticSession({ questions }: DiagnosticSessionProps) {
 
       {currentQuestion.scenario && (
         <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-4 text-sm text-slate-700 dark:text-slate-300 border-l-4 border-indigo-400 leading-relaxed">
-          <p className="text-xs font-semibold text-indigo-600 mb-2 uppercase tracking-wide">Scenario</p>
+          <p className="text-xs font-semibold text-indigo-600 mb-2 uppercase tracking-wide">Tình huống</p>
           {currentQuestion.scenario}
         </div>
       )}
@@ -254,7 +254,7 @@ export function DiagnosticSession({ questions }: DiagnosticSessionProps) {
 
       {answers[currentQuestion.id] && (
         <div className={`p-4 rounded-lg text-sm ${results[currentQuestion.id] ? "bg-green-50 dark:bg-green-950 text-green-700 dark:text-green-300" : "bg-red-50 dark:bg-red-950 text-red-700 dark:text-red-300"}`}>
-          {currentQuestion.correctAnswer && `Correct answer: ${currentQuestion.correctAnswer}. `}
+          {currentQuestion.correctAnswer && `Đáp án đúng: ${currentQuestion.correctAnswer}. `}
           {/* Brief explanation would go here from explanationCorrect */}
         </div>
       )}
@@ -265,7 +265,7 @@ export function DiagnosticSession({ questions }: DiagnosticSessionProps) {
         className="w-full"
         size="lg"
       >
-        {submitting ? "Saving..." : currentIndex + 1 >= questions.length ? "See Results" : "Next Question"}
+        {submitting ? "Đang lưu..." : currentIndex + 1 >= questions.length ? "Xem kết quả" : "Câu tiếp theo"}
       </Button>
     </div>
   );

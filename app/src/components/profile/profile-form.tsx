@@ -47,7 +47,7 @@ export function ProfileForm({
     <form onSubmit={handleSave} className="space-y-5">
       <div>
         <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">
-          Target Exam Date
+          Ngày dự kiến thi
         </label>
         <input
           type="date"
@@ -55,12 +55,12 @@ export function ProfileForm({
           onChange={(e) => setExamDate(e.target.value)}
           className="w-full px-3 py-2.5 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
         />
-        <p className="text-xs text-slate-400 mt-1">Enables exam countdown on your dashboard</p>
+        <p className="text-xs text-slate-400 mt-1">Bật đếm ngược ngày thi trên trang Tổng quan</p>
       </div>
 
       <div>
         <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">
-          Daily Study Goal
+          Mục tiêu học mỗi ngày
         </label>
         <div className="flex items-center gap-3">
           <input
@@ -72,8 +72,8 @@ export function ProfileForm({
             onChange={(e) => setDailyGoalMinutes(Number(e.target.value))}
             className="flex-1 accent-indigo-600"
           />
-          <span className="w-20 text-sm font-medium text-slate-700 dark:text-slate-300">
-            {dailyGoalMinutes} min/day
+          <span className="w-24 text-sm font-medium text-slate-700 dark:text-slate-300">
+            {dailyGoalMinutes} phút/ngày
           </span>
         </div>
       </div>
@@ -87,12 +87,12 @@ export function ProfileForm({
             className="w-4 h-4 accent-indigo-600"
           />
           <span className="text-sm font-medium text-slate-700 dark:text-slate-300">
-            Daily Study Reminders
+            Nhắc học hằng ngày
           </span>
         </label>
         {notifyEnabled && (
           <div className="mt-3 flex items-center gap-3">
-            <label className="text-sm text-slate-500">Remind me at</label>
+            <label className="text-sm text-slate-500">Nhắc tôi vào lúc</label>
             <select
               value={notifyHour}
               onChange={(e) => setNotifyHour(Number(e.target.value))}
@@ -100,7 +100,7 @@ export function ProfileForm({
             >
               {Array.from({ length: 24 }, (_, i) => (
                 <option key={i} value={i}>
-                  {i === 0 ? "12:00 AM" : i < 12 ? `${i}:00 AM` : i === 12 ? "12:00 PM" : `${i - 12}:00 PM`}
+                  {i.toString().padStart(2, "0")}:00
                 </option>
               ))}
             </select>
@@ -109,7 +109,7 @@ export function ProfileForm({
       </div>
 
       <Button type="submit" disabled={saving} className="w-full">
-        {saved ? "Saved!" : saving ? "Saving..." : "Save Settings"}
+        {saved ? "Đã lưu!" : saving ? "Đang lưu..." : "Lưu cài đặt"}
       </Button>
     </form>
   );

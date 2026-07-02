@@ -39,7 +39,7 @@ export default async function ProfilePage() {
   return (
     <AppShell>
       <div className="max-w-2xl mx-auto px-4 py-6 space-y-6">
-        <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Profile & Settings</h1>
+        <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Hồ sơ & Cài đặt</h1>
 
         {/* User info */}
         <Card>
@@ -51,7 +51,7 @@ export default async function ProfilePage() {
               <h2 className="font-bold text-lg text-slate-900 dark:text-slate-100">{user.name}</h2>
               <p className="text-sm text-slate-500">{user.email}</p>
               <p className="text-xs text-slate-400 mt-1">
-                Member since {new Date(user.createdAt).toLocaleDateString()}
+                Thành viên từ {new Date(user.createdAt).toLocaleDateString("vi-VN")}
               </p>
             </div>
             <SignOutButton />
@@ -63,19 +63,19 @@ export default async function ProfilePage() {
           <Card className="text-center">
             <CardContent className="py-4">
               <p className="text-2xl font-bold text-indigo-600">{attemptCount}</p>
-              <p className="text-xs text-slate-500 mt-1">Questions Answered</p>
+              <p className="text-xs text-slate-500 mt-1">Câu đã làm</p>
             </CardContent>
           </Card>
           <Card className="text-center">
             <CardContent className="py-4">
               <p className="text-2xl font-bold text-green-600">{completedLessons}</p>
-              <p className="text-xs text-slate-500 mt-1">Lessons Done</p>
+              <p className="text-xs text-slate-500 mt-1">Bài học xong</p>
             </CardContent>
           </Card>
           <Card className="text-center">
             <CardContent className="py-4">
               <p className="text-2xl font-bold text-purple-600">{completedLabs}</p>
-              <p className="text-xs text-slate-500 mt-1">Labs Done</p>
+              <p className="text-xs text-slate-500 mt-1">Lab xong</p>
             </CardContent>
           </Card>
         </div>
@@ -83,7 +83,7 @@ export default async function ProfilePage() {
         {/* Settings form */}
         <Card>
           <CardHeader>
-            <h2 className="font-semibold text-slate-900 dark:text-slate-100">Study Settings</h2>
+            <h2 className="font-semibold text-slate-900 dark:text-slate-100">Cài đặt học tập</h2>
           </CardHeader>
           <CardContent>
             <ProfileForm
@@ -99,14 +99,14 @@ export default async function ProfilePage() {
         {/* Quick links */}
         <Card>
           <CardHeader>
-            <h2 className="font-semibold text-slate-900 dark:text-slate-100">Quick Start</h2>
+            <h2 className="font-semibold text-slate-900 dark:text-slate-100">Bắt đầu nhanh</h2>
           </CardHeader>
           <CardContent className="space-y-2">
             <a href="/diagnostic" className="block text-sm text-indigo-600 dark:text-indigo-400 hover:underline">
-              Take Diagnostic Assessment →
+              Làm bài kiểm tra đầu vào →
             </a>
             <p className="text-xs text-slate-400">
-              Find out where to focus your study efforts
+              Tìm ra bạn nên tập trung ôn tập ở đâu
             </p>
           </CardContent>
         </Card>

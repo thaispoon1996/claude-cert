@@ -27,7 +27,22 @@
       "PowerShell(Get-Command wsl -ErrorAction SilentlyContinue)",
       "PowerShell(winget search tursodatabase 2>&1)",
       "Bash(npx prisma *)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git remote *)",
+      "Bash(git push *)",
+      "Bash(npx vercel *)",
+      "Bash(vercel whoami *)",
+      "Bash(vercel link *)",
+      "Bash(vercel env *)",
+      "Bash(node -e \"console.log\\(require\\('crypto'\\).randomBytes\\(32\\).toString\\('base64'\\)\\)\")",
+      "Bash(vercel --prod)",
+      "Bash(curl -s -o /dev/null -w \"homepage: %{http_code}\\\\n\" https://claude-cert-two.vercel.app/)",
+      "Bash(curl -s -o /dev/null -w \"auth/error: %{http_code}\\\\n\" https://claude-cert-two.vercel.app/api/auth/error)",
+      "Bash(curl -s -o /dev/null -w \"csrf: %{http_code}\\\\n\" https://claude-cert-two.vercel.app/api/auth/csrf)",
+      "Bash(curl -s https://claude-cert-two.vercel.app/api/auth/csrf)",
+      "Bash(find . -maxdepth 2 -iname \".vercel\")",
+      "Bash(find . -maxdepth 3 -iname \".vercel\")"
     ],
     "additionalDirectories": [
       "D:\\Project\\claude-cert\\app\\src\\app\\api\\auth",

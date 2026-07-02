@@ -47,7 +47,7 @@ export function ExplanationPanel({
         )}
         <div>
           <p className={cn("font-semibold", isCorrect ? "text-green-800 dark:text-green-200" : "text-red-800 dark:text-red-200")}>
-            {isCorrect ? "Correct!" : `Incorrect — Correct answer: ${correctAnswer}`}
+            {isCorrect ? "Chính xác!" : `Chưa đúng — Đáp án đúng: ${correctAnswer}`}
           </p>
           <p className="text-sm mt-0.5 text-slate-600 dark:text-slate-400">{explanationCorrect}</p>
         </div>
@@ -55,7 +55,7 @@ export function ExplanationPanel({
 
       {/* Option explanations */}
       <div className="bg-white dark:bg-slate-800 p-5 space-y-3">
-        <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 mb-3">Option Explanations</p>
+        <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 mb-3">Giải thích từng lựa chọn</p>
         {(["A", "B", "C", "D"] as const).map((key) => (
           <div
             key={key}

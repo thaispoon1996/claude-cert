@@ -17,6 +17,12 @@ const difficultyVariant: Record<string, "default" | "success" | "warning" | "dan
   hard: "danger",
 };
 
+const difficultyLabel: Record<string, string> = {
+  easy: "Dễ",
+  medium: "Trung bình",
+  hard: "Khó",
+};
+
 export function QuestionCard({
   questionNumber,
   totalQuestions,
@@ -31,7 +37,7 @@ export function QuestionCard({
       {/* Header */}
       <div className="flex items-center justify-between mb-4">
         <span className="text-sm text-slate-500">
-          Question {questionNumber} of {totalQuestions}
+          Câu {questionNumber} / {totalQuestions}
         </span>
         <div className="flex items-center gap-2">
           {domainName && (
@@ -39,8 +45,8 @@ export function QuestionCard({
               {domainName}
             </Badge>
           )}
-          <Badge variant={difficultyVariant[difficulty] ?? "default"} className="capitalize">
-            {difficulty}
+          <Badge variant={difficultyVariant[difficulty] ?? "default"}>
+            {difficultyLabel[difficulty] ?? difficulty}
           </Badge>
         </div>
       </div>
@@ -48,7 +54,7 @@ export function QuestionCard({
       {/* Scenario */}
       {scenario && (
         <div className="bg-slate-50 dark:bg-slate-900 rounded-lg p-4 mb-4 text-sm text-slate-700 dark:text-slate-300 leading-relaxed border-l-4 border-indigo-400">
-          <p className="font-medium text-xs text-indigo-600 dark:text-indigo-400 mb-2 uppercase tracking-wide">Scenario</p>
+          <p className="font-medium text-xs text-indigo-600 dark:text-indigo-400 mb-2 uppercase tracking-wide">Tình huống</p>
           <p>{scenario}</p>
         </div>
       )}

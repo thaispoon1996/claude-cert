@@ -28,9 +28,9 @@ export default async function ExamPage() {
     <AppShell>
       <div className="max-w-2xl mx-auto px-4 py-6 space-y-6">
         <div>
-          <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Mock Exam</h1>
+          <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Thi thử</h1>
           <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">
-            Simulate the real CCA-F exam environment
+            Mô phỏng đúng môi trường thi CCA-F thật
           </p>
         </div>
 
@@ -43,13 +43,13 @@ export default async function ExamPage() {
                   <ClipboardList className="h-6 w-6 text-indigo-600 dark:text-indigo-400" />
                 </div>
                 <div className="flex-1">
-                  <h2 className="font-bold text-lg text-slate-900 dark:text-slate-100">Full Mock Exam</h2>
-                  <p className="text-sm text-slate-500 mt-1">60 questions · 120 minutes · All domains</p>
+                  <h2 className="font-bold text-lg text-slate-900 dark:text-slate-100">Đề thi thử đầy đủ</h2>
+                  <p className="text-sm text-slate-500 mt-1">60 câu · 120 phút · Tất cả các domain</p>
                   <div className="flex items-center gap-3 mt-2">
                     <span className="text-xs text-slate-400 flex items-center gap-1">
-                      <Clock className="h-3 w-3" /> 2 hours
+                      <Clock className="h-3 w-3" /> 2 giờ
                     </span>
-                    <span className="text-xs text-slate-400">Passing score: 700/1000</span>
+                    <span className="text-xs text-slate-400">Điểm đạt: 700/1000</span>
                   </div>
                 </div>
                 <StartExamButton mode="full" />
@@ -59,8 +59,8 @@ export default async function ExamPage() {
 
           <Card>
             <CardHeader>
-              <h2 className="font-semibold text-slate-900 dark:text-slate-100">Mini Mock by Domain</h2>
-              <p className="text-sm text-slate-500">20 questions · 40 minutes · Focus on one domain</p>
+              <h2 className="font-semibold text-slate-900 dark:text-slate-100">Thi thử mini theo Domain</h2>
+              <p className="text-sm text-slate-500">20 câu · 40 phút · Tập trung vào một domain</p>
             </CardHeader>
             <CardContent className="space-y-2">
               {domains.map((domain) => (
@@ -81,7 +81,7 @@ export default async function ExamPage() {
         {/* Exam history */}
         {pastSessions.length > 0 && (
           <div>
-            <h2 className="font-semibold text-slate-700 dark:text-slate-300 mb-3">Past Exams</h2>
+            <h2 className="font-semibold text-slate-700 dark:text-slate-300 mb-3">Lịch sử thi thử</h2>
             <div className="space-y-3">
               {pastSessions.map((s) => (
                 <Card key={s.id}>
@@ -95,10 +95,10 @@ export default async function ExamPage() {
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="text-sm font-medium text-slate-800 dark:text-slate-200">
-                        {s.mode === "mini" ? "Mini Mock" : "Full Mock"}
+                        {s.mode === "mini" ? "Thi thử mini" : "Thi thử đầy đủ"}
                       </p>
                       <p className="text-xs text-slate-400">
-                        {format(new Date(s.startedAt), "MMM d, yyyy")}
+                        {format(new Date(s.startedAt), "dd/MM/yyyy")}
                       </p>
                     </div>
                     <div className="text-right">
@@ -106,11 +106,11 @@ export default async function ExamPage() {
                         {s.scaledScore !== null ? formatScore(s.scaledScore) : "--"}
                       </p>
                       <Badge variant={s.passed ? "success" : "danger"} className="text-xs">
-                        {s.passed ? "PASS" : "FAIL"}
+                        {s.passed ? "ĐẠT" : "CHƯA ĐẠT"}
                       </Badge>
                     </div>
                     <a href={`/exam/${s.id}/results`} className="text-xs text-indigo-500 hover:underline ml-2">
-                      View
+                      Xem
                     </a>
                   </CardContent>
                 </Card>

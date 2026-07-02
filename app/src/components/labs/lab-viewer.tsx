@@ -88,7 +88,7 @@ export function LabViewer({ lab, progress }: LabViewerProps) {
         <div className="flex items-center gap-2 bg-green-50 dark:bg-green-950 border border-green-200 dark:border-green-800 rounded-lg px-4 py-2">
           <CheckCircle className="h-4 w-4 text-green-600" />
           <span className="text-sm text-green-700 dark:text-green-300 font-medium">
-            Lab completed{progress.quizScore !== null ? ` · Quiz score: ${progress.quizScore}%` : ""}
+            Đã hoàn thành lab{progress.quizScore !== null ? ` · Điểm quiz: ${progress.quizScore}%` : ""}
           </span>
         </div>
       )}
@@ -99,13 +99,13 @@ export function LabViewer({ lab, progress }: LabViewerProps) {
           <div className="flex items-start gap-3">
             <Target className="h-5 w-5 text-indigo-500 flex-shrink-0 mt-0.5" />
             <div>
-              <h2 className="font-semibold text-slate-900 dark:text-slate-100">Objective</h2>
+              <h2 className="font-semibold text-slate-900 dark:text-slate-100">Mục tiêu</h2>
               <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">{lab.objective}</p>
             </div>
           </div>
           {lab.prerequisites && (
             <div className="pt-2 border-t border-slate-100 dark:border-slate-700">
-              <p className="text-xs font-medium text-slate-500 mb-1">Prerequisites</p>
+              <p className="text-xs font-medium text-slate-500 mb-1">Yêu cầu chuẩn bị</p>
               <p className="text-sm text-slate-600 dark:text-slate-400">{lab.prerequisites}</p>
             </div>
           )}
@@ -119,7 +119,7 @@ export function LabViewer({ lab, progress }: LabViewerProps) {
             <div className="flex items-center gap-2">
               <ListChecks className="h-5 w-5 text-indigo-500" />
               <h2 className="font-semibold text-slate-900 dark:text-slate-100">
-                Steps ({completedSteps.size}/{steps.length})
+                Các bước ({completedSteps.size}/{steps.length})
               </h2>
             </div>
           </CardHeader>
@@ -148,7 +148,7 @@ export function LabViewer({ lab, progress }: LabViewerProps) {
                     </button>
                     <div className="flex-1">
                       <h3 className="font-medium text-sm text-slate-900 dark:text-slate-100">
-                        Step {step.step}: {step.title}
+                        Bước {step.step}: {step.title}
                       </h3>
                       <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">{step.description}</p>
                       {step.code && (
@@ -158,7 +158,7 @@ export function LabViewer({ lab, progress }: LabViewerProps) {
                       )}
                       {step.expected && (
                         <div className="mt-2">
-                          <p className="text-xs font-medium text-slate-500 mb-1">Expected output:</p>
+                          <p className="text-xs font-medium text-slate-500 mb-1">Kết quả mong đợi:</p>
                           <pre className="bg-slate-100 dark:bg-slate-800 rounded p-2 text-xs font-mono text-slate-700 dark:text-slate-300">
                             {step.expected}
                           </pre>
@@ -177,7 +177,7 @@ export function LabViewer({ lab, progress }: LabViewerProps) {
       {lab.expectedOutput && (
         <Card>
           <CardHeader>
-            <h2 className="font-semibold text-slate-900 dark:text-slate-100">Expected Output</h2>
+            <h2 className="font-semibold text-slate-900 dark:text-slate-100">Kết quả mong đợi</h2>
           </CardHeader>
           <CardContent>
             <pre className="bg-slate-900 dark:bg-slate-950 text-green-400 rounded-lg p-4 text-xs font-mono overflow-x-auto whitespace-pre-wrap">
@@ -192,7 +192,7 @@ export function LabViewer({ lab, progress }: LabViewerProps) {
         <Card className="border-purple-200 dark:border-purple-800">
           <CardContent className="p-5">
             <div className="flex items-start gap-2">
-              <Badge variant="purple" className="flex-shrink-0">Challenge</Badge>
+              <Badge variant="purple" className="flex-shrink-0">Thử thách thêm</Badge>
               <p className="text-sm text-slate-600 dark:text-slate-400">{lab.challenge}</p>
             </div>
           </CardContent>
@@ -203,7 +203,7 @@ export function LabViewer({ lab, progress }: LabViewerProps) {
       {quizItems.length > 0 && (
         <Card>
           <CardHeader>
-            <h2 className="font-semibold text-slate-900 dark:text-slate-100">Knowledge Check</h2>
+            <h2 className="font-semibold text-slate-900 dark:text-slate-100">Kiểm tra nhanh</h2>
           </CardHeader>
           <CardContent className="space-y-8">
             {quizItems.map((q, idx) => (
@@ -234,7 +234,7 @@ export function LabViewer({ lab, progress }: LabViewerProps) {
 
       {progress?.status !== "completed" && (
         <Button onClick={handleComplete} disabled={saving} className="w-full" size="lg">
-          {saving ? "Saving..." : "Mark Lab as Complete"}
+          {saving ? "Đang lưu..." : "Đánh dấu hoàn thành Lab"}
         </Button>
       )}
     </div>

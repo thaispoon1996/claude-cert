@@ -6,11 +6,11 @@ import { LayoutDashboard, BookOpen, Brain, ClipboardList, User } from "lucide-re
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { href: "/dashboard", icon: LayoutDashboard, label: "Home" },
-  { href: "/learn", icon: BookOpen, label: "Learn" },
-  { href: "/practice", icon: Brain, label: "Practice" },
-  { href: "/exam", icon: ClipboardList, label: "Exam" },
-  { href: "/profile", icon: User, label: "Profile" },
+  { href: "/dashboard", icon: LayoutDashboard, label: "Trang chủ" },
+  { href: "/learn", icon: BookOpen, label: "Học" },
+  { href: "/practice", icon: Brain, label: "Luyện tập" },
+  { href: "/exam", icon: ClipboardList, label: "Thi" },
+  { href: "/profile", icon: User, label: "Hồ sơ" },
 ];
 
 export function BottomNav() {

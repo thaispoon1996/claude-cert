@@ -11,11 +11,11 @@ import Link from "next/link";
 import { Brain, BookOpen, ClipboardList, Flame, Target, TrendingUp } from "lucide-react";
 
 const DOMAIN_SHORT: Record<number, string> = {
-  1: "Architecture",
-  2: "Model Selection",
-  3: "Safety",
-  4: "Evaluation",
-  5: "Production",
+  1: "Kiến trúc Agentic",
+  2: "Tool & MCP",
+  3: "Claude Code",
+  4: "Prompt Engineering",
+  5: "Context & Độ tin cậy",
 };
 
 async function getDashboardData(userId: string) {
@@ -120,19 +120,19 @@ export default async function DashboardPage() {
         <div className="flex items-start justify-between">
           <div>
             <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100">
-              Hello, {session.user.name?.split(" ")[0] ?? "Learner"} 👋
+              Chào, {session.user.name?.split(" ")[0] ?? "bạn"} 👋
             </h1>
             <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">
               {daysToExam !== null && daysToExam > 0
-                ? `${daysToExam} days until your exam`
-                : "Set your exam date in Profile to see countdown"}
+                ? `Còn ${daysToExam} ngày tới kỳ thi`
+                : "Đặt ngày thi trong Hồ sơ để xem đếm ngược"}
             </p>
           </div>
           <div className="flex items-center gap-2 bg-orange-50 dark:bg-orange-950 border border-orange-200 dark:border-orange-800 rounded-xl px-4 py-2">
             <Flame className="h-5 w-5 text-orange-500" />
             <div>
               <p className="font-bold text-orange-700 dark:text-orange-300 text-lg leading-none">{data.streak}</p>
-              <p className="text-xs text-orange-500">day streak</p>
+              <p className="text-xs text-orange-500">ngày liên tiếp</p>
             </div>
           </div>
         </div>
@@ -142,7 +142,7 @@ export default async function DashboardPage() {
           <Card className="text-center">
             <CardContent className="py-4">
               <p className="text-2xl font-bold text-indigo-600">{data.totalAnswered}</p>
-              <p className="text-xs text-slate-500 mt-1">Questions Answered</p>
+              <p className="text-xs text-slate-500 mt-1">Câu đã làm</p>
             </CardContent>
           </Card>
           <Card className="text-center">
@@ -150,7 +150,7 @@ export default async function DashboardPage() {
               <p className="text-2xl font-bold text-green-600">
                 {data.totalAnswered > 0 ? Math.round((data.totalCorrect / data.totalAnswered) * 100) : 0}%
               </p>
-              <p className="text-xs text-slate-500 mt-1">Accuracy</p>
+              <p className="text-xs text-slate-500 mt-1">Độ chính xác</p>
             </CardContent>
           </Card>
           <Card className="text-center">
@@ -158,7 +158,7 @@ export default async function DashboardPage() {
               <p className="text-2xl font-bold text-purple-600">
                 {data.domainProgress.reduce((s, d) => s + d.mastery, 0) / 5 | 0}%
               </p>
-              <p className="text-xs text-slate-500 mt-1">Avg Mastery</p>
+              <p className="text-xs text-slate-500 mt-1">Thành thạo TB</p>
             </CardContent>
           </Card>
         </div>
@@ -169,7 +169,7 @@ export default async function DashboardPage() {
             <CardHeader>
               <h2 className="font-semibold text-slate-900 dark:text-slate-100 flex items-center gap-2">
                 <TrendingUp className="h-4 w-4 text-indigo-500" />
-                Domain Mastery
+                Mức độ Thành thạo theo Domain
               </h2>
             </CardHeader>
             <CardContent>
@@ -181,13 +181,13 @@ export default async function DashboardPage() {
             <CardHeader>
               <h2 className="font-semibold text-slate-900 dark:text-slate-100 flex items-center gap-2">
                 <Target className="h-4 w-4 text-red-500" />
-                Weak Spots
+                Điểm yếu
               </h2>
             </CardHeader>
             <CardContent className="space-y-4">
               {data.weakSpots.length === 0 ? (
                 <p className="text-sm text-slate-400 text-center py-4">
-                  Practice more questions to find your weak spots!
+                  Luyện thêm câu hỏi để tìm ra điểm yếu của bạn!
                 </p>
               ) : (
                 data.weakSpots.map((spot) => (
@@ -215,7 +215,7 @@ export default async function DashboardPage() {
         {/* Domain progress */}
         <Card>
           <CardHeader>
-            <h2 className="font-semibold text-slate-900 dark:text-slate-100">Domain Progress</h2>
+            <h2 className="font-semibold text-slate-900 dark:text-slate-100">Tiến độ theo Domain</h2>
           </CardHeader>
           <CardContent className="space-y-4">
             {data.domainProgress.map((dp) => (
@@ -244,8 +244,8 @@ export default async function DashboardPage() {
           >
             <BookOpen className="h-5 w-5" />
             <div>
-              <p className="font-semibold text-sm">Continue Learning</p>
-              <p className="text-xs text-indigo-200">Study lessons & content</p>
+              <p className="font-semibold text-sm">Tiếp tục học</p>
+              <p className="text-xs text-indigo-200">Học bài & nội dung lý thuyết</p>
             </div>
           </Link>
           <Link
@@ -254,8 +254,8 @@ export default async function DashboardPage() {
           >
             <Brain className="h-5 w-5" />
             <div>
-              <p className="font-semibold text-sm">Practice Questions</p>
-              <p className="text-xs text-purple-200">Targeted Q&A sessions</p>
+              <p className="font-semibold text-sm">Luyện tập câu hỏi</p>
+              <p className="text-xs text-purple-200">Phiên luyện tập theo mục tiêu</p>
             </div>
           </Link>
           <Link
@@ -264,8 +264,8 @@ export default async function DashboardPage() {
           >
             <ClipboardList className="h-5 w-5" />
             <div>
-              <p className="font-semibold text-sm">Mock Exam</p>
-              <p className="text-xs text-green-200">Timed practice test</p>
+              <p className="font-semibold text-sm">Thi thử</p>
+              <p className="text-xs text-green-200">Bài thi thử có giới hạn thời gian</p>
             </div>
           </Link>
         </div>

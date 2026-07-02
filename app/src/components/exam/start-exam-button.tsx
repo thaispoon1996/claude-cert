@@ -31,7 +31,7 @@ export function StartExamButton({ mode, domainId, size = "md" }: StartExamButton
 
   return (
     <Button onClick={handleStart} disabled={loading} size={size}>
-      {loading ? "Starting..." : "Start"}
+      {loading ? "Đang bắt đầu..." : "Bắt đầu"}
     </Button>
   );
 }

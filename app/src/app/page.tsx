@@ -21,9 +21,9 @@ export default async function Home() {
 
       {/* Login card */}
       <div className="w-full max-w-sm bg-white dark:bg-slate-800 rounded-2xl shadow-2xl p-8">
-        <h2 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-2">Sign in to study</h2>
+        <h2 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-2">Đăng nhập để học</h2>
         <p className="text-sm text-slate-500 dark:text-slate-400 mb-6">
-          Enter your email to start or continue studying for the CCA-F exam.
+          Nhập email để bắt đầu hoặc tiếp tục ôn thi CCA-F.
         </p>
         <LoginForm />
       </div>
@@ -31,9 +31,9 @@ export default async function Home() {
       {/* Features */}
       <div className="mt-10 grid grid-cols-3 gap-4 text-center max-w-sm w-full">
         {[
-          { emoji: "🧠", label: "Spaced Repetition" },
-          { emoji: "📊", label: "5 Domains" },
-          { emoji: "🎯", label: "Mock Exams" },
+          { emoji: "🧠", label: "Lặp lại ngắt quãng" },
+          { emoji: "📊", label: "5 Domain" },
+          { emoji: "🎯", label: "Thi thử" },
         ].map(({ emoji, label }) => (
           <div key={label} className="text-center">
             <div className="text-2xl mb-1">{emoji}</div>

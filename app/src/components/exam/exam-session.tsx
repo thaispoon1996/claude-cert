@@ -81,10 +81,10 @@ export function ExamSession({ sessionId, questions, timeLimitSecs, mode }: ExamS
       <div className="sticky top-0 z-10 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700 px-4 py-3 flex items-center justify-between">
         <div className="flex items-center gap-4">
           <span className="text-sm font-medium text-slate-600 dark:text-slate-400">
-            {mode === "mini" ? "Mini Mock" : "Full Mock"} · Q{currentIndex + 1}/{questions.length}
+            {mode === "mini" ? "Thi thử mini" : "Thi thử đầy đủ"} · Câu {currentIndex + 1}/{questions.length}
           </span>
           <div className="text-sm text-slate-400">
-            {answeredCount}/{questions.length} answered
+            Đã trả lời {answeredCount}/{questions.length}
           </div>
         </div>
         <div className="flex items-center gap-3">
@@ -95,7 +95,7 @@ export function ExamSession({ sessionId, questions, timeLimitSecs, mode }: ExamS
             onClick={() => setShowNav(!showNav)}
             className="text-xs"
           >
-            Navigator
+            Danh sách câu
           </Button>
         </div>
       </div>
@@ -105,8 +105,8 @@ export function ExamSession({ sessionId, questions, timeLimitSecs, mode }: ExamS
         <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4">
           <div className="bg-white dark:bg-slate-800 rounded-2xl p-6 max-w-lg w-full shadow-2xl">
             <div className="flex justify-between items-center mb-4">
-              <h3 className="font-semibold text-slate-900 dark:text-slate-100">Question Navigator</h3>
-              <Button variant="ghost" size="sm" onClick={() => setShowNav(false)}>Close</Button>
+              <h3 className="font-semibold text-slate-900 dark:text-slate-100">Danh sách câu hỏi</h3>
+              <Button variant="ghost" size="sm" onClick={() => setShowNav(false)}>Đóng</Button>
             </div>
             <div className="grid grid-cols-10 gap-1.5">
               {questions.map((q, i) => {
@@ -130,9 +130,9 @@ export function ExamSession({ sessionId, questions, timeLimitSecs, mode }: ExamS
               })}
             </div>
             <div className="flex gap-4 mt-4 text-xs text-slate-400">
-              <span className="flex items-center gap-1.5"><span className="w-3 h-3 bg-indigo-500 rounded" /> Answered</span>
-              <span className="flex items-center gap-1.5"><span className="w-3 h-3 border border-slate-300 rounded" /> Unanswered</span>
-              <span className="flex items-center gap-1.5"><span className="w-3 h-3 border-2 border-yellow-400 rounded" /> Flagged</span>
+              <span className="flex items-center gap-1.5"><span className="w-3 h-3 bg-indigo-500 rounded" /> Đã trả lời</span>
+              <span className="flex items-center gap-1.5"><span className="w-3 h-3 border border-slate-300 rounded" /> Chưa trả lời</span>
+              <span className="flex items-center gap-1.5"><span className="w-3 h-3 border-2 border-yellow-400 rounded" /> Đã đánh dấu</span>
             </div>
           </div>
         </div>
@@ -143,7 +143,7 @@ export function ExamSession({ sessionId, questions, timeLimitSecs, mode }: ExamS
         {/* Scenario */}
         {currentQuestion?.scenario && (
           <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-4 text-sm text-slate-700 dark:text-slate-300 border-l-4 border-indigo-400 leading-relaxed">
-            <p className="text-xs font-semibold text-indigo-600 dark:text-indigo-400 mb-2 uppercase tracking-wide">Scenario</p>
+            <p className="text-xs font-semibold text-indigo-600 dark:text-indigo-400 mb-2 uppercase tracking-wide">Tình huống</p>
             <p>{currentQuestion.scenario}</p>
           </div>
         )}
@@ -188,14 +188,14 @@ export function ExamSession({ sessionId, questions, timeLimitSecs, mode }: ExamS
             disabled={currentIndex === 0}
           >
             <ChevronLeft className="h-4 w-4" />
-            Prev
+            Trước
           </Button>
           {currentIndex < questions.length - 1 ? (
             <Button
               className="flex-1"
               onClick={() => setCurrentIndex((i) => Math.min(questions.length - 1, i + 1))}
             >
-              Next
+              Tiếp
               <ChevronRight className="h-4 w-4" />
             </Button>
           ) : (
@@ -203,7 +203,7 @@ export function ExamSession({ sessionId, questions, timeLimitSecs, mode }: ExamS
               className="flex-1"
               onClick={() => {
                 if (unanswered > 0) {
-                  if (confirm(`You have ${unanswered} unanswered question(s). Submit anyway?`)) {
+                  if (confirm(`Bạn còn ${unanswered} câu chưa trả lời. Vẫn nộp bài?`)) {
                     handleSubmit();
                   }
                 } else {
@@ -213,7 +213,7 @@ export function ExamSession({ sessionId, questions, timeLimitSecs, mode }: ExamS
               disabled={submitting}
               variant="default"
             >
-              {submitting ? "Submitting..." : "Submit Exam"}
+              {submitting ? "Đang nộp bài..." : "Nộp bài"}
               <Send className="h-4 w-4" />
             </Button>
           )}

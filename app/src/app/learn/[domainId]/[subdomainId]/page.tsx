@@ -71,7 +71,7 @@ export default async function SubdomainPage({
           />
         ) : (
           <div className="text-center py-16 text-slate-400">
-            <p>No lessons available for this subdomain yet.</p>
+            <p>Subdomain này chưa có bài học nào.</p>
           </div>
         )}
       </div>

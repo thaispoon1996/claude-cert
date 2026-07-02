@@ -19,29 +19,29 @@ export default async function PracticePage() {
     {
       href: "/practice/session?mode=domain",
       icon: Brain,
-      title: "By Domain",
-      description: "Practice questions from a specific domain",
+      title: "Theo Domain",
+      description: "Luyện câu hỏi từ một domain cụ thể",
       color: "bg-blue-500",
     },
     {
       href: "/practice/session?mode=weak-spots",
       icon: Target,
-      title: "Weak Spots",
-      description: "Focus on questions you've gotten wrong",
+      title: "Điểm yếu",
+      description: "Tập trung vào các câu bạn đã làm sai",
       color: "bg-red-500",
     },
     {
       href: "/practice/session?mode=random&limit=20",
       icon: Shuffle,
-      title: "Weighted Random",
-      description: "Random mix weighted by domain exam weight",
+      title: "Ngẫu nhiên có trọng số",
+      description: "Trộn ngẫu nhiên theo đúng trọng số đề thi từng domain",
       color: "bg-purple-500",
     },
     {
       href: "/practice/session?mode=quick&limit=5",
       icon: Zap,
-      title: "Quick 5",
-      description: "5-question rapid-fire practice",
+      title: "5 câu nhanh",
+      description: "Luyện nhanh 5 câu hỏi",
       color: "bg-orange-500",
     },
   ];
@@ -50,8 +50,8 @@ export default async function PracticePage() {
     <AppShell>
       <div className="max-w-2xl mx-auto px-4 py-6 space-y-6">
         <div>
-          <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Practice</h1>
-          <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">Choose your study mode</p>
+          <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Luyện tập</h1>
+          <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">Chọn chế độ luyện tập</p>
         </div>
 
         {/* Modes */}
@@ -79,7 +79,7 @@ export default async function PracticePage() {
         {/* Domain selector */}
         <div>
           <h2 className="font-semibold text-slate-700 dark:text-slate-300 mb-3 text-sm uppercase tracking-wide">
-            Practice by Domain
+            Luyện theo Domain
           </h2>
           <div className="space-y-2">
             {domains.map((domain) => (

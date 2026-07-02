@@ -41,7 +41,7 @@ export function LessonCard({ id, title, titleVi, summary, status, domainId, subd
         </div>
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 mb-1">
-            <span className="text-xs text-slate-400">Lesson {order}</span>
+            <span className="text-xs text-slate-400">Bài {order}</span>
           </div>
           <h3 className="font-medium text-slate-900 dark:text-slate-100 text-sm">{titleVi}</h3>
           <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">{title}</p>

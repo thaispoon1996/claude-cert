@@ -6,12 +6,12 @@ import { LayoutDashboard, BookOpen, Brain, ClipboardList, User, FlaskConical } f
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { href: "/dashboard", icon: LayoutDashboard, label: "Dashboard" },
-  { href: "/learn", icon: BookOpen, label: "Learn" },
-  { href: "/practice", icon: Brain, label: "Practice" },
-  { href: "/exam", icon: ClipboardList, label: "Mock Exam" },
-  { href: "/labs", icon: FlaskConical, label: "Labs" },
-  { href: "/profile", icon: User, label: "Profile" },
+  { href: "/dashboard", icon: LayoutDashboard, label: "Tổng quan" },
+  { href: "/learn", icon: BookOpen, label: "Học" },
+  { href: "/practice", icon: Brain, label: "Luyện tập" },
+  { href: "/exam", icon: ClipboardList, label: "Thi thử" },
+  { href: "/labs", icon: FlaskConical, label: "Lab thực hành" },
+  { href: "/profile", icon: User, label: "Hồ sơ" },
 ];
 
 export function Sidebar() {
@@ -26,7 +26,7 @@ export function Sidebar() {
         </div>
         <div>
           <div className="font-bold text-sm">ClaudePath</div>
-          <div className="text-xs text-slate-400">CCA-F Prep</div>
+          <div className="text-xs text-slate-400">Ôn thi CCA-F</div>
         </div>
       </div>
 

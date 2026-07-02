@@ -59,10 +59,10 @@ export default async function ExamResultsPage({
           <Link href="/exam">
             <Button variant="ghost" size="sm">
               <ArrowLeft className="h-4 w-4 mr-1" />
-              Back
+              Quay lại
             </Button>
           </Link>
-          <h1 className="text-xl font-bold text-slate-900 dark:text-slate-100">Exam Results</h1>
+          <h1 className="text-xl font-bold text-slate-900 dark:text-slate-100">Kết quả thi</h1>
         </div>
 
         {/* Score card */}
@@ -83,16 +83,16 @@ export default async function ExamResultsPage({
                 variant={examSession.passed ? "success" : "danger"}
                 className="mt-2 text-sm px-4 py-1"
               >
-                {examSession.passed ? "PASS" : "FAIL"}
+                {examSession.passed ? "ĐẠT" : "CHƯA ĐẠT"}
               </Badge>
             </div>
             <div className="flex justify-center gap-6 text-sm text-slate-500">
-              <span>{examSession.rawScore ?? 0} correct of {questionIds.length}</span>
+              <span>Đúng {examSession.rawScore ?? 0}/{questionIds.length} câu</span>
               {examSession.timeSpentSec && (
-                <span>{Math.floor(examSession.timeSpentSec / 60)}m {examSession.timeSpentSec % 60}s</span>
+                <span>{Math.floor(examSession.timeSpentSec / 60)} phút {examSession.timeSpentSec % 60} giây</span>
               )}
             </div>
-            <p className="text-xs text-slate-400">Passing threshold: 700/1000</p>
+            <p className="text-xs text-slate-400">Ngưỡng đạt: 700/1000</p>
           </CardContent>
         </Card>
 
@@ -100,7 +100,7 @@ export default async function ExamResultsPage({
         {Object.keys(domainScores).length > 0 && (
           <Card>
             <CardHeader>
-              <h2 className="font-semibold text-slate-900 dark:text-slate-100">Domain Breakdown</h2>
+              <h2 className="font-semibold text-slate-900 dark:text-slate-100">Phân tích theo Domain</h2>
             </CardHeader>
             <CardContent className="space-y-4">
               {domains.map((domain) => {
@@ -134,7 +134,7 @@ export default async function ExamResultsPage({
         {/* Review answers */}
         <Card>
           <CardHeader>
-            <h2 className="font-semibold text-slate-900 dark:text-slate-100">Answer Review</h2>
+            <h2 className="font-semibold text-slate-900 dark:text-slate-100">Xem lại đáp án</h2>
           </CardHeader>
           <CardContent className="divide-y divide-slate-100 dark:divide-slate-700 py-0">
             {questionIds.map((qid, idx) => {
@@ -149,9 +149,9 @@ export default async function ExamResultsPage({
                       <p className="text-sm text-slate-800 dark:text-slate-200 font-medium">{q.stem}</p>
                       <div className="flex items-center gap-2 mt-1">
                         <span className={`text-xs font-semibold ${attempt.isCorrect ? "text-green-600" : "text-red-600"}`}>
-                          {attempt.isCorrect ? "Correct" : `Wrong (correct: ${q.correctAnswer})`}
+                          {attempt.isCorrect ? "Đúng" : `Sai (đáp án đúng: ${q.correctAnswer})`}
                         </span>
-                        <span className="text-xs text-slate-400">Your answer: {attempt.selectedAnswer}</span>
+                        <span className="text-xs text-slate-400">Bạn chọn: {attempt.selectedAnswer}</span>
                       </div>
                       {!attempt.isCorrect && (
                         <p className="text-xs text-slate-500 mt-1">{q.explanationCorrect}</p>
@@ -166,10 +166,10 @@ export default async function ExamResultsPage({
 
         <div className="flex gap-3">
           <Link href="/exam" className="flex-1">
-            <Button variant="outline" className="w-full">New Exam</Button>
+            <Button variant="outline" className="w-full">Thi thử mới</Button>
           </Link>
           <Link href="/practice" className="flex-1">
-            <Button className="w-full">Practice Weak Areas</Button>
+            <Button className="w-full">Luyện tập điểm yếu</Button>
           </Link>
         </div>
       </div>

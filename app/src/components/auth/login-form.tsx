@@ -24,13 +24,13 @@ export function LoginForm() {
       });
 
       if (result?.error) {
-        setError("Sign in failed. Please try again.");
+        setError("Đăng nhập thất bại. Vui lòng thử lại.");
       } else {
         router.push("/dashboard");
         router.refresh();
       }
     } catch {
-      setError("An error occurred. Please try again.");
+      setError("Đã có lỗi xảy ra. Vui lòng thử lại.");
     } finally {
       setLoading(false);
     }
@@ -40,14 +40,14 @@ export function LoginForm() {
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
         <label htmlFor="email" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">
-          Email address
+          Địa chỉ email
         </label>
         <input
           id="email"
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="you@example.com"
+          placeholder="ban@example.com"
           required
           className="w-full px-3 py-2.5 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm"
         />
@@ -58,11 +58,11 @@ export function LoginForm() {
       )}
 
       <Button type="submit" disabled={loading} className="w-full" size="lg">
-        {loading ? "Signing in..." : "Sign in"}
+        {loading ? "Đang đăng nhập..." : "Đăng nhập"}
       </Button>
 
       <p className="text-xs text-center text-slate-400">
-        No password required for demo — any email works.
+        Không cần mật khẩu cho bản demo — mọi email đều dùng được.
       </p>
     </form>
   );

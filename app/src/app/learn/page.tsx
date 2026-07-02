@@ -37,9 +37,9 @@ export default async function LearnPage() {
     <AppShell>
       <div className="max-w-3xl mx-auto px-4 py-6 space-y-6">
         <div>
-          <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Learning Path</h1>
+          <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Lộ trình học</h1>
           <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">
-            Master all 5 domains of the CCA-F certification
+            Chinh phục cả 5 domain của chứng chỉ CCA-F
           </p>
         </div>
 
@@ -59,7 +59,7 @@ export default async function LearnPage() {
                   </span>
                   <div className="flex-1">
                     <h2 className="font-semibold text-slate-900 dark:text-slate-100">{domain.nameVi}</h2>
-                    <p className="text-xs text-slate-500">{domain.name} · {domain.weight * 100 | 0}% exam weight</p>
+                    <p className="text-xs text-slate-500">{domain.name} · {domain.weight * 100 | 0}% trọng số đề thi</p>
                   </div>
                   <span className="text-sm font-medium text-slate-600 dark:text-slate-400">
                     {completedLessons}/{totalLessons}
@@ -78,7 +78,7 @@ export default async function LearnPage() {
                   >
                     <div className="flex-1 min-w-0">
                       <p className="text-sm font-medium text-slate-800 dark:text-slate-200">{subdomain.nameVi}</p>
-                      <p className="text-xs text-slate-400">{subdomain.number} · {subdomain.lessons.length} lessons</p>
+                      <p className="text-xs text-slate-400">{subdomain.number} · {subdomain.lessons.length} bài học</p>
                     </div>
                     <ChevronRight className="h-4 w-4 text-slate-400 flex-shrink-0" />
                   </Link>

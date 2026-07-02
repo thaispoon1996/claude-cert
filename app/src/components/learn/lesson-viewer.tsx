@@ -80,14 +80,14 @@ export function LessonViewer({ lesson, lessons, progress, domainId, subdomainId 
           <Link href={`/learn/${domainId}/${subdomainId}?lesson=${prevLesson.id}`}>
             <Button variant="ghost" size="sm">
               <ChevronLeft className="h-4 w-4 mr-1" />
-              Previous
+              Trước
             </Button>
           </Link>
         ) : <div />}
         <div className="flex items-center gap-2">
           {progress?.status === "completed" && (
             <Badge variant="success" className="flex items-center gap-1">
-              <CheckCircle className="h-3 w-3" /> Completed
+              <CheckCircle className="h-3 w-3" /> Đã hoàn thành
             </Badge>
           )}
           <span className="text-sm text-slate-400">
@@ -97,7 +97,7 @@ export function LessonViewer({ lesson, lessons, progress, domainId, subdomainId 
         {nextLesson ? (
           <Link href={`/learn/${domainId}/${subdomainId}?lesson=${nextLesson.id}`}>
             <Button variant="ghost" size="sm">
-              Next
+              Tiếp
               <ChevronRight className="h-4 w-4 ml-1" />
             </Button>
           </Link>
@@ -128,15 +128,15 @@ export function LessonViewer({ lesson, lessons, progress, domainId, subdomainId 
       {antiPatterns.length > 0 && (
         <Card>
           <CardHeader>
-            <h3 className="font-semibold text-red-600 dark:text-red-400">Anti-Patterns to Avoid</h3>
+            <h3 className="font-semibold text-red-600 dark:text-red-400">Anti-pattern Cần Tránh</h3>
           </CardHeader>
           <CardContent>
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
                   <tr className="border-b border-slate-200 dark:border-slate-700">
-                    <th className="text-left py-2 pr-4 font-medium text-slate-600 dark:text-slate-400">Pattern</th>
-                    <th className="text-left py-2 font-medium text-slate-600 dark:text-slate-400">Why it Fails</th>
+                    <th className="text-left py-2 pr-4 font-medium text-slate-600 dark:text-slate-400">Pattern sai</th>
+                    <th className="text-left py-2 font-medium text-slate-600 dark:text-slate-400">Vì sao sai</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100 dark:divide-slate-700">
@@ -157,8 +157,8 @@ export function LessonViewer({ lesson, lessons, progress, domainId, subdomainId 
       {lesson.quizItems.length > 0 && (
         <Card>
           <CardHeader>
-            <h3 className="font-semibold text-slate-900 dark:text-slate-100">Knowledge Check</h3>
-            <p className="text-xs text-slate-400 mt-0.5">{lesson.quizItems.length} questions</p>
+            <h3 className="font-semibold text-slate-900 dark:text-slate-100">Kiểm tra nhanh</h3>
+            <p className="text-xs text-slate-400 mt-0.5">{lesson.quizItems.length} câu hỏi</p>
           </CardHeader>
           <CardContent className="space-y-8">
             {lesson.quizItems.map((q, idx) => (
@@ -204,7 +204,7 @@ export function LessonViewer({ lesson, lessons, progress, domainId, subdomainId 
       {/* Mark complete */}
       {progress?.status !== "completed" && (
         <Button onClick={markComplete} disabled={marking} className="w-full" size="lg">
-          {marking ? "Saving..." : "Mark as Complete"}
+          {marking ? "Đang lưu..." : "Đánh dấu hoàn thành"}
         </Button>
       )}
     </div>
