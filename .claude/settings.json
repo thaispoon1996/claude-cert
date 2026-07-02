@@ -1,0 +1,37 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm --version)",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(d['version']\\)\")",
+      "Bash(mkdir -p \"D:\\\\Project\\\\claude-cert\\\\app\\\\src\\\\app\\\\api\\\\auth\\\\[...nextauth]\" \"D:\\\\Project\\\\claude-cert\\\\app\\\\src\\\\app\\\\api\\\\domains\" \"D:\\\\Project\\\\claude-cert\\\\app\\\\src\\\\app\\\\api\\\\lessons\\\\[id]\\\\progress\" \"D:\\\\Project\\\\claude-cert\\\\app\\\\src\\\\app\\\\api\\\\questions\\\\[id]\\\\attempt\" \"D:\\\\Project\\\\claude-cert\\\\app\\\\src\\\\app\\\\api\\\\mock-exam\\\\[id]\\\\submit\" \"D:\\\\Project\\\\claude-cert\\\\app\\\\src\\\\app\\\\api\\\\dashboard\" \"D:\\\\Project\\\\claude-cert\\\\app\\\\src\\\\app\\\\api\\\\labs\\\\[id]\\\\progress\" 2>/dev/null; echo \"dirs created\")",
+      "Bash(mkdir -p \"D:\\\\Project\\\\claude-cert\\\\app\\\\src\\\\app\\\\dashboard\" \"D:\\\\Project\\\\claude-cert\\\\app\\\\src\\\\app\\\\learn\\\\[domainId]\\\\[subdomainId]\" \"D:\\\\Project\\\\claude-cert\\\\app\\\\src\\\\app\\\\practice\\\\session\" \"D:\\\\Project\\\\claude-cert\\\\app\\\\src\\\\app\\\\exam\\\\[sessionId]\\\\results\" \"D:\\\\Project\\\\claude-cert\\\\app\\\\src\\\\app\\\\labs\\\\[labId]\" \"D:\\\\Project\\\\claude-cert\\\\app\\\\src\\\\app\\\\diagnostic\" \"D:\\\\Project\\\\claude-cert\\\\app\\\\src\\\\app\\\\profile\" 2>/dev/null; echo \"done\")",
+      "Bash(npx tsc *)",
+      "Bash(git -C \"d:/Project/claude-cert\" log --oneline -20)",
+      "Bash(git -C \"d:/Project/claude-cert\" status)",
+      "Bash(python -c ' *)",
+      "Bash(iconv -f utf-8 -t utf-8 /tmp/prd_out.txt)",
+      "Read(//tmp/**)",
+      "Bash(rm \"d:/Project/claude-cert/scratch_prd.txt\"; cd \"d:/Project/claude-cert/app\" && cat package.json)",
+      "Bash(npx tsx -e ' *)",
+      "Bash(npx tsx *)",
+      "Bash(echo \"EXIT:$?\")",
+      "Bash(npm run *)",
+      "Bash(curl -s -o /dev/null -w \"learn: %{http_code}\\\\n\" http://localhost:3000/learn)",
+      "Bash(curl -s -o /dev/null -w \"practice: %{http_code}\\\\n\" http://localhost:3000/practice)",
+      "Bash(curl -s -o /dev/null -w \"labs: %{http_code}\\\\n\" http://localhost:3000/labs)",
+      "Bash(curl -s -o /dev/null -w \"dashboard: %{http_code}\\\\n\" http://localhost:3000/dashboard)",
+      "Bash(tail -n 60 /tmp/dev_server.log)",
+      "PowerShell(irm https://get.tur.so/install.ps1 | iex)",
+      "PowerShell(Get-Command scoop -ErrorAction SilentlyContinue)",
+      "PowerShell(Get-Command winget -ErrorAction SilentlyContinue)",
+      "PowerShell(Get-Command wsl -ErrorAction SilentlyContinue)",
+      "PowerShell(winget search tursodatabase 2>&1)",
+      "Bash(npx prisma *)",
+      "Bash(git add *)"
+    ],
+    "additionalDirectories": [
+      "D:\\Project\\claude-cert\\app\\src\\app\\api\\auth",
+      "D:\\Project\\claude-cert\\app\\src\\app\\learn\\[domainId]"
+    ]
+  }
+}
